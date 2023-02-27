@@ -1,7 +1,7 @@
 WIRING
 
 #POCKET GEIGER - M4
-+V-5V
++V-5V<br />
 GND-GND
 SIG-D5
 NS-D6
