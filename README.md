@@ -9,4 +9,4 @@ NS-D6
 | **POCKET GEIGER**  | **METRO M4** |
 | ------------- | ------------- |
 | +V  | 5V  |
-| Content Cell  | Content Cell  |
+| GND | GND  |
