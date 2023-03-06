@@ -2,7 +2,7 @@ import time
 import board
 import analogio
 
-analog_in = analogio.AnalogIn(board.A1)
+analog_in = analogio.AnalogIn(board.A0)
 
 reference_voltage = 5 # voltage supplied must be 5V
 conversion_factor = 0.0082 # SEN-14209 model, the conversion factor is given as 0.0082 µSv/hr/V.
@@ -14,4 +14,3 @@ while True:
 
     print("Radiation level:", radiation_level, "µSv/hr")
     time.sleep(1)
-
