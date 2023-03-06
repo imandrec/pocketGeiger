@@ -14,7 +14,7 @@ conversion_factor = 0.0082 # SEN-14209 model, the conversion factor is given as 
 
 while True:
     analog_input_value = analog_in.value
-    voltage = (analog_input_value / 65535) * reference_voltage
+    voltage = (analog_input_value / 65535) * reference_voltage #CircuitPython reads analog input values as a 16-bit unsigned integer, which has a range of 0 to 65535.
     radiation_level = voltage * conversion_factor
 
     print("Radiation level:", radiation_level, "µSv/hr")
