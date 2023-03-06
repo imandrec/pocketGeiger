@@ -2,7 +2,7 @@
 //5V-+V
 //GND-GND
 //SIG-D2
-//NS-3
+//NS-D3
 
 #include "RadiationWatch.h"
 
