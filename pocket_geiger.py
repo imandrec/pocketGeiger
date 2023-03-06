@@ -17,5 +17,5 @@ while True:
     voltage = (analog_input_value / 65535) * reference_voltage #CircuitPython reads analog input values as a 16-bit unsigned integer, which has a range of 0 to 65535.
     radiation_level = voltage * conversion_factor
 
-    print("Radiation level:", radiation_level, "µSv/hr")
-    time.sleep(1)
+    print("Radiation level:", "{:.6f}".format(radiation_level) , "µSv/hr")
+    time.sleep(3)
