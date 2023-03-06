@@ -1,3 +1,8 @@
+# The SIG pin provides an analog voltage output that is proportional to the radiation level being measured, NS pin is used to detect 
+#individual radiation events and is typically used for applications where the number of events or the dose rate needs to be measured
+# We dont really need the NS pin to detect radiation levels
+
+
 import time
 import board
 import analogio
