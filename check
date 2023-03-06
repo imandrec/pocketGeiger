@@ -1,6 +1,3 @@
-#A1-M4 SIG-POCKET GEIGER
-#A1 to SIG in pocket geiger
-
 import time
 import board
 import analogio
