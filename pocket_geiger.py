@@ -6,11 +6,11 @@ import digitalio
 
 #PIN setting for Radiation Pulse
 Rad = digitalio.DigitalInOut(board.D2); #//Radiation Pulse 
-Rad.direction = digitalio.Direction.OUTPUT #Vibration Noise Pulse 
+Rad.direction = digitalio.Direction.INPUT #Vibration Noise Pulse 
 
 #PIN setting for Noise Pulse
 Noise = digitalio.DigitalInOut(board.D3);
-Noise.direction.OUTPUT
+Noise.direction = digitalio.Direction.INPUT
 
 alpha = 53.032 # cpm = uSv x alpha
 
@@ -23,7 +23,7 @@ sON = 0; #//Lock flag for Radiation Pulse
 nON = 0; #//Lock flag for Noise Puls
 
 cpm = 0; #//Count rate [cpm] of current
-cpmHistory= []; #//History of count rates
+
 cpmIndex = 0; #//Position of current count rate on cpmHistory[]
 cpmIndexPrev = 0; #//Flag to prevent duplicative counting
 
@@ -49,9 +49,10 @@ uSvdBuff = []
 print("hour[h]_sec[s]_count_cpm_uSv/h_uSv/hError");
 
 #Initialize cpmHistory[]
-#for i in range(200):
-#    cpmHistory[i] = 0;
-cpmHistory = [0] * 200
+cpmHistory= [0] * 200; #//History of count rates
+for i in range(200):
+    cpmHistory[i] = 0;
+    cpmHistory = [0] * 200
 
 #Get start time of a loop
 prevTime = time.time();
@@ -149,8 +150,7 @@ while True:
         cpmBuff = "0.000"
         uSvBuff = "0.000"
         uSvdBuff = "0.000"
-
-
+    
     print("%d,%d.%03d,%d,%s,%s,%s" % (
           totalHour, totalSec, cpmTimeMSec, signCount,
           cpmBuff, uSvBuff, uSvdBuff
