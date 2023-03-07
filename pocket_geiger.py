@@ -14,30 +14,30 @@ Noise.direction = digitalio.Direction.INPUT
 
 alpha = 53.032 # cpm = uSv x alpha
 
-index = 0; # Number of loops
+index = 0 # Number of loops
 
-signCount = 0; #//Counter for Radiation Pulse
-noiseCount = 0; #//Counter for Noise Pulse
+signCount = 0 #//Counter for Radiation Pulse
+noiseCount = 0 #//Counter for Noise Pulse
 
-sON = 0; #//Lock flag for Radiation Pulse
-nON = 0; #//Lock flag for Noise Puls
+sON = 0 #//Lock flag for Radiation Pulse
+nON = 0 #//Lock flag for Noise Puls
 
 cpm = 0; #//Count rate [cpm] of current
-
-cpmIndex = 0; #//Position of current count rate on cpmHistory[]
-cpmIndexPrev = 0; #//Flag to prevent duplicative counting
+cpmHistory= [] #//History of count rates
+cpmIndex = 0 #//Position of current count rate on cpmHistory[]
+cpmIndexPrev = 0 #//Flag to prevent duplicative counting
 
 #Timing Settings for Loop Interval
-prevTime = 0;
-currTime = 0;
+prevTime = 0
+currTime = 0
 
-totalSec = 0; #Elapsed time of measurement [sec]
-totalHour = 0; #Elapsed time of measurement [hour]
+totalSec = 0 #Elapsed time of measurement [sec]
+totalHour = 0 #Elapsed time of measurement [hour]
 
 #Time settings for CPM calcuaration
-cpmTimeMSec = 0;
-cpmTimeSec = 0;
-cpmTimeMin = 0;
+cpmTimeMSec = 0
+cpmTimeSec = 0
+cpmTimeMin = 0
 
 #String buffers of float values for serial output
 #unlimited empty buffer 
@@ -49,10 +49,7 @@ uSvdBuff = []
 print("hour[h]_sec[s]_count_cpm_uSv/h_uSv/hError");
 
 #Initialize cpmHistory[]
-cpmHistory= [0] * 200; #//History of count rates
-for i in range(200):
-    cpmHistory[i] = 0;
-    cpmHistory = [0] * 200
+cpmHistory = [0 for i in range(200)]
 
 #Get start time of a loop
 prevTime = time.time();
@@ -71,7 +68,7 @@ while True:
     sON = 1
     signCount=+1
   elif sign == 1 and sON == 1:
-    sON = 0;
+    sON = 0
 
 
   #Noise Pulse normally keeps high for about 100[usec]
@@ -111,12 +108,12 @@ while True:
 
 
       #Store count log
-      cpmHistory[cpmIndex] += signCount;
+      cpmHistory[cpmIndex] += signCount
       #Add number of counts
-      cpm += signCount;
+      cpm += signCount
 
       #Get ready time for 10000 loops
-      cpmTimeMSec += abs(currTime - prevTime);
+      cpmTimeMSec += abs(currTime - prevTime)
       #Transform from msec. to sec. (to prevent overflow)
       if cpmTimeMSec >= 1000:
 
@@ -159,9 +156,9 @@ while True:
 
 
     #Initialization for next 10000 loops
-    prevTime = currTime;
-    signCount = 0;
-    noiseCount = 0;
-    index = 0;
+    prevTime = currTime
+    signCount = 0
+    noiseCount = 0
+    index = 0
 
-  index+=1;
+  index+=1
