@@ -5,8 +5,8 @@ import digitalio
 #　Digital I/O PIN Settings　///
 
 #PIN setting for Radiation Pulse
-Rad = digitalio.DigitalInOut(board.D2); #//Radiation Pulse (Yellow)
-Rad.direction = digitalio.Direction.OUTPUT #//Vibration Noise Pulse (White)
+Rad = digitalio.DigitalInOut(board.D2); #//Radiation Pulse 
+Rad.direction = digitalio.Direction.OUTPUT #Vibration Noise Pulse 
 
 #PIN setting for Noise Pulse
 Noise = digitalio.DigitalInOut(board.D3);
@@ -31,19 +31,19 @@ cpmIndexPrev = 0; #//Flag to prevent duplicative counting
 prevTime = 0;
 currTime = 0;
 
-totalSec = 0; #//Elapsed time of measurement [sec]
-totalHour = 0; #//Elapsed time of measurement [hour]
+totalSec = 0; #Elapsed time of measurement [sec]
+totalHour = 0; #Elapsed time of measurement [hour]
 
-#//Time settings for CPM calcuaration
+#Time settings for CPM calcuaration
 cpmTimeMSec = 0;
 cpmTimeSec = 0;
 cpmTimeMin = 0;
 
-#//String buffers of float values for serial output
+#String buffers of float values for serial output
+#unlimited empty buffer 
 cpmBuff = []
 uSvBuff = []
 uSvdBuff = []
-
 
 #CSV-formatting for serial output (substitute , for _)
 print("hour[h]_sec[s]_count_cpm_uSv/h_uSv/hError");
