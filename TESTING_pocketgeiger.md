@@ -4,7 +4,7 @@
 To test the pocket Geiger we need to connect the pocket geiger to our M4:
 # SIG - A0
 # +V - 5V
-#GND - GND
+# GND - GND
 
 copy this code into the code.py file in the M4:
 
