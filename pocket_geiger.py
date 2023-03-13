@@ -4,7 +4,7 @@ import analogio
 import digitalio
 
 sensor_pin = analogio.AnalogIn(board.A0) # analog input pin connected to the SEN-14209
-ns_pin = digitalio.DigitalInOut(board.D0) # digital input pin connected to the NS pin of the SEN-14209
+ns_pin = digitalio.DigitalInOut(board.D7) # digital input pin connected to the NS pin of the SEN-14209
 ns_pin.switch_to_input(pull=digitalio.Pull.DOWN) # set the NS pin as an input with a pull-down resistor
 
 history = [0] * 6  # initialize history array to store counts for the last 6 seconds
