@@ -4,7 +4,7 @@ import analogio
 import digitalio
 
 # Define constants for radiation sensor and history buffer
-K_BETA = 0.0875  # conversion factor for SEN-14209 radiation sensor, in uSv/h per count per second
+K_BETA = 0.00875  # conversion factor for SEN-14209 radiation sensor, in uSv/h per count per second
 BUFFER_LENGTH = 60  # maximum number of radiation values that can be stored in the buffer
 BUFFER_UNIT = 1  # interval of time between buffer updates, in seconds
 NO_RAD_THRESHOLD = 3  # time in seconds before count is set to 0 when no radiation is detected
